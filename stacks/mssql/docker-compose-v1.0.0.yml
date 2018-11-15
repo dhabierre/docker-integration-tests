@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+
+  mssql:
+    image: microsoft/mssql-server-linux:latest
+    ports:
+      - 1433:1433
+    volumes:
+      - ./v1.0.0:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd

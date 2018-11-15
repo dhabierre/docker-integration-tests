@@ -1,0 +1,2 @@
+Put your existing indices in this directory.
+They will be automatically loaded when the image is running.

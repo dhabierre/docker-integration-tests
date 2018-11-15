@@ -1,0 +1,17 @@
+﻿FROM microsoft/dotnet:2-sdk
+ 
+WORKDIR /home/app
+
+COPY ./WebApi WebApi
+COPY ./IntegrationTests IntegrationTests
+COPY ./Demo.sln .
+
+RUN dotnet restore Demo.sln -nowarn:msb3202,nu1503
+RUN dotnet build Demo.sln
+ 
+WORKDIR /home/app/IntegrationTests/
+ 
+ENTRYPOINT ["dotnet", "test"]
+
+# debug (to enter in the docker using 'docker exec' or 'docker cp' commands)
+#ENTRYPOINT ["tail", "-f", "/dev/null"]

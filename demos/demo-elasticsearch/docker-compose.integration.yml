@@ -1,0 +1,35 @@
+version: '2.4' # last version that supports depends_on / condition...
+ 
+services:
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.2
+    ports:
+      - 9200:9200
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./Docker/elasticsearch/v1.0.0/esdata:/usr/share/elasticsearch/data
+    healthcheck:
+      test: curl -f http://127.0.0.1:9200 || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  integration:
+    image: webapi-integration-tests:0.0.1
+    build:
+      context: .
+      dockerfile: ./IntegrationTests/Dockerfile.Integration
+    volumes:
+      - ./WebApi/appsettings.Integration.json:/home/app/WebApi/appsettings.Development.json
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
