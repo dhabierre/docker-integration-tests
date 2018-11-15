@@ -1,4 +1,4 @@
-# demo
+# demo-elasticsearch
 
 /!\ **WORK IN PROGRESS** /!\
 
