@@ -30,7 +30,11 @@ This way it is possible to spin up a specific version.
 
 ## Execute Integration Tests with Docker
 
-This repository also provides [full stack examples](demos).
+This repository also provides a [full stack examples](demo) using
+
+- WebApi dotnet core
+- xUnit integration tests
+- Elasticsearch
 
 ## Important
 
