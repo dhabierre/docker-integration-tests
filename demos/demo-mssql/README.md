@@ -1,4 +1,4 @@
-# demo-elasticsearch
+# demo-mssql
 
 /!\ **WORK IN PROGRESS** /!\
 
@@ -6,7 +6,7 @@ This demo provides a full stack example
 
 - WebApi dotnet core
 - xUnit integration tests
-- Elasticsearch
+- MS SQL Server
 
 Integration tests can be run
 
@@ -15,7 +15,7 @@ Integration tests can be run
 
 ## Import an existing index or create index and data by script
 
-Report to [this link](../../stacks/elasticsearch).
+Report to [this link](../../stacks/mssql).
 
 ## Stack commands
 

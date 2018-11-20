@@ -24,7 +24,7 @@ Information to connect:
 docker-compose -f docker-compose-v1.0.0.yml down
 ```
 
-## Importants
+## Important
 
 All scripts inside **v1.0.0\\** directory will be executed at the container startup.
 

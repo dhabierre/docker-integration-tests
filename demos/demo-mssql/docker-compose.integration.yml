@@ -2,22 +2,19 @@ version: '2.4' # last version that supports depends_on / condition...
  
 services:
 
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.0
+  mssql:
+    image: microsoft/mssql-server-linux:latest
     ports:
-      - 9200:9200
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
+      - 1433:1433
     volumes:
-      - ./elasticsearch/v1.0.0/esdata:/usr/share/elasticsearch/data
+      - ./mssql/v1.0.0:/usr/src/app
+    working_dir: /usr/src/app
+    command: sh -c 'chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
     healthcheck:
-      test: curl -f http://127.0.0.1:9200 || exit 1
+      test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P P@55w0rd -d MyDatabase -Q 'SELECT 1 FROM MyDatabase'
       interval: 10s
       timeout: 5s
       retries: 5
@@ -31,5 +28,5 @@ services:
     volumes:
       - ./src/WebApi/appsettings.Integration.json:/home/app/WebApi/appsettings.Development.json
     depends_on:
-      elasticsearch:
+      mssql:
         condition: service_healthy

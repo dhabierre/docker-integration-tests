@@ -1,14 +1,15 @@
 namespace IntegrationTests
 {
-    using System.Collections.Generic;
-    using System.Net;
-    using System.Net.Http;
-    using System.Threading.Tasks;
     using FluentAssertions;
     using Microsoft.AspNetCore.Mvc.Testing;
     using Newtonsoft.Json;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Threading.Tasks;
     using WebApi;
-    using WebApi.Documents;
+    using WebApi.Entities;
 
     public class IntegrationTests : Xunit.IClassFixture<WebApplicationFactory<Startup>>
     {
@@ -32,10 +33,12 @@ namespace IntegrationTests
 
             json.Should().NotBeNullOrEmpty();
 
-            var samples = JsonConvert.DeserializeObject<IEnumerable<SampleDocument>>(json);
+            var samples = JsonConvert.DeserializeObject<IEnumerable<SampleEntity>>(json);
 
             samples.Should().NotBeNullOrEmpty();
-            samples.Should().HaveCount(size);
+
+            samples.Count().Should().BeGreaterThan(0);
+            samples.Count().Should().BeLessOrEqualTo(size);
         }
     }
 }

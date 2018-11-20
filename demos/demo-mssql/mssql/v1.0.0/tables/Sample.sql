@@ -1,0 +1,11 @@
+USE [MyDatabase];
+GO
+
+CREATE TABLE [Sample]
+(
+  [Id] INTEGER NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+  [IsCritical] BIT NOT NULL,
+  [Message] VARCHAR(MAX) NOT NULL,
+  [Timestamp] DATETIME NOT NULL
+);
+GO

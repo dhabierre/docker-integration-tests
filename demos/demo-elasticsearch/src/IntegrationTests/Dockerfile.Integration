@@ -2,9 +2,9 @@
  
 WORKDIR /home/app
 
-COPY ./WebApi WebApi
-COPY ./IntegrationTests IntegrationTests
-COPY ./Demo.sln .
+COPY ./src/WebApi WebApi
+COPY ./src/IntegrationTests IntegrationTests
+COPY ./src/Demo.sln .
 
 RUN dotnet restore Demo.sln -nowarn:msb3202,nu1503
 RUN dotnet build Demo.sln

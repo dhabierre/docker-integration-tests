@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Microsoft.AspNetCore.Mvc;
     using Services;
 
@@ -18,9 +19,9 @@
 
         // GET api/data
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get(int from, int size)
+        public async Task<ActionResult<IEnumerable<string>>> GetAsync(int from, int size)
         {
-            var data = this.dataService.GetSamples(from, size);
+            var data = await this.dataService.GetSamplesAsync(from, size);
 
             return Ok(data);
         }

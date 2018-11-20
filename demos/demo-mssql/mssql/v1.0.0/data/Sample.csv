@@ -1,0 +1,12 @@
+Id,IsCritical,Message,Timestamp
+NULL,0,Message1,2000-01-01
+NULL,1,Message2,2000-01-02
+NULL,0,Message3,2000-01-03
+NULL,1,Message4,2000-01-04
+NULL,0,Message5,2000-01-05
+NULL,1,Message6,2000-01-06
+NULL,0,Message7,2000-01-07
+NULL,1,Message8,2000-01-08
+NULL,0,Message9,2000-01-09
+NULL,1,Message10,2000-01-10
+NULL,0,Message11,2000-01-11

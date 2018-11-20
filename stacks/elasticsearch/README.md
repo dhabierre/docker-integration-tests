@@ -65,6 +65,6 @@ To access to Elasticsearch use Kibana (http://127.0.0.1:5601).
 docker-compose -f docker-compose-v1.0.0.yml down
 ```
 
-## Importants
+## Important
 
 If strange behaviors occurred when executing **docker-compose** be sure that each file uses **LF** (and not **CRLF**).

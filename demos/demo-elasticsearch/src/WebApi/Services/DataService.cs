@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Documents;
     using Nest;
 
@@ -14,10 +15,10 @@
             this.elasticClient = elasticClient ?? throw new ArgumentNullException(nameof(elasticClient));
         }
 
-        public IEnumerable<SampleDocument> GetSamples(int form, int size)
+        public async Task<IEnumerable<SampleDocument>> GetSamplesAsync(int from, int size)
         {
-            var response = this.elasticClient.Search<SampleDocument>(x => x
-                .From(form)
+            var response = await this.elasticClient.SearchAsync<SampleDocument>(x => x
+                .From(from)
                 .Size(size)
                 .Query(q => q.MatchAll()));
 
