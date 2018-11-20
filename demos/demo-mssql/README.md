@@ -13,10 +13,6 @@ Integration tests can be run
 - locally with Visual Studio 2017 (the WebApi is loaded in-memory by the integration tests)
 - using Docker Compose at CI-side
 
-## Import an existing index or create index and data by script
-
-Report to [this link](../../stacks/mssql).
-
 ## Stack commands
 
 ```sh
