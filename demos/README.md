@@ -4,3 +4,4 @@ Some full stack examples
 
 - [demo-elasticsearch](demo-elasticsearch)
 - [demo-mssql](demo-mssql)
+- [demo-postgresql](demo-postgresql)

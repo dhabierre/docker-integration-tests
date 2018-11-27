@@ -1,0 +1,36 @@
+version: '2.4' # last version that supports depends_on / condition...
+ 
+services:
+
+  postgresql:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    volumes:
+      - ./postgresql/v1.0.0:/docker-entrypoint-initdb.d/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: MyDatabase
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: always
+
+  admin:
+    image: adminer
+    ports:
+      - 8081:8080
+
+  integration:
+    image: webapi-integration-tests:0.0.1
+    build:
+      context: .
+      dockerfile: ./src/IntegrationTests/Dockerfile.Integration
+    volumes:
+      - ./src/WebApi/appsettings.Integration.json:/home/app/WebApi/appsettings.Development.json
+    depends_on:
+      postgresql:
+        condition: service_healthy

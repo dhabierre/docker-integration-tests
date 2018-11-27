@@ -1,0 +1,11 @@
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message1', '2000-01-01');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('1', 'Message2', '2000-01-02');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message3', '2000-01-03');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('1', 'Message4', '2000-01-04');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message5', '2000-01-05');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('1', 'Message6', '2000-01-06');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message7', '2000-01-07');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('1', 'Message8', '2000-01-08');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message9', '2000-01-09');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('1', 'Message10', '2000-01-10');
+INSERT INTO "Sample" ("IsCritical", "Message", "Timestamp") VALUES ('0', 'Message11', '2000-01-11');
