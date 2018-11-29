@@ -6,7 +6,7 @@ This demo provides a full stack example
 
 - WebApi dotnet core
 - xUnit integration tests
-- MS SQL Server
+- Postgresql
 
 Integration tests can be run
 
